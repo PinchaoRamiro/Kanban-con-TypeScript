@@ -13,6 +13,6 @@ RUN npm run build
 # Copy static files to dist directory
 RUN cp -r public dist/public
 
-EXPOSE 8000
+EXPOSE 3000
 
 CMD ["npm", "start"]
