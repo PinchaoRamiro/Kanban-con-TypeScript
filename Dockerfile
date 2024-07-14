@@ -1,19 +1,18 @@
-# Usa la imagen base oficial de Node.js
 FROM node:latest 
 
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /dir
+WORKDIR /usr/src/app
 
-# Acceder a los archivos a los que se va a acceder
-COPY . .
+COPY package*.json ./
 
-# Instala las dependencias de la aplicación
 RUN npm install
+
+COPY . .
 
 RUN npm run build 
 
-# Expone el puerto en el cual la aplicación estará corriendo
-EXPOSE 3000
+# Copy static files to dist directory
+RUN cp -r public dist/public
 
-# Comando para iniciar la aplicación
-CMD ["node", "dist/app.js"]
+EXPOSE 8000
+
+CMD ["npm", "start"]

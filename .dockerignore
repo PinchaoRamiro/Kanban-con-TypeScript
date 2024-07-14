@@ -1,5 +1,12 @@
-Postman
-node_modules
+Postman/
 Dockerfile
+Data_base/
+node_modules
+dist/
+*.log
+.DS_Store
 .env
+.git
+.gitignore
+.vscode
 
